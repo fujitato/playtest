@@ -9,15 +9,14 @@ case class Corp_acc_smry(year:Long,period: Long, count: Long)
 
 object Corp_acc_smry {
 
-  def allPeriodBySplrRegionFY2010On(country_id: String, global_ids: List[String]): List[Corp_acc_smry] = DB.withConnection("zaimu") { implicit c =>
+  def allPeriodBySplrRegionFY2011On( global_ids: List[String]): List[Corp_acc_smry] = DB.withConnection("zaimu") { implicit c =>
     RichSQL(
       """
 select acc_sttl_year,acc_sttl_period_num,count(*) count  from corp_acc_smry
 where global_id IN({a})
-AND acc_sttl_period_num >201001
+AND acc_sttl_period_num >201101
 GROUP BY acc_sttl_period_num
-          """).onList("a" -> global_ids).toSQL.as(corp_acc_smry *)        
-
+          """).onList("a" -> global_ids).toSQL.as(corp_acc_smry *)            
   }
   val corp_acc_smry = {
     get[Long]("acc_sttl_year")~

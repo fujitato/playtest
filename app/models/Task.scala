@@ -26,12 +26,7 @@ object Task {
     }
   }
 
-//  val task = {
-//    get[Long]("id") ~
-//      get[String]("label") map {
-//        case id ~ label => Task(id, label)
-//      }
-//  }
+
   
     val task = {
     get[String]("currency_id") ~
