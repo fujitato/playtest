@@ -1,0 +1,42 @@
+@* wvb Template File *@
+@(corp: List[Corp_acc_smry])
+
+@import helper._
+
+@main("JPN list") {
+    
+    <h1>period count <span>@corp.size</span></h1>
+    <h2>2010</h2>
+      <ul>
+        @corp.filter(p => p.year == 2010 ).map { p =>
+        	<li>
+                 @p.period   @p.count
+            </li>
+        }
+    </ul>
+    <h2>2011</h2>
+      <ul>
+        @corp.filter(p => p.year == 2011 ).map { p =>
+        	<li>
+                 @p.period   @p.count
+            </li>
+        }
+    </ul>
+    <h2>2012</h2>
+      <ul>
+        @corp.filter(p => p.year == 2012 ).map { p =>
+        	<li>
+                 @p.period   @p.count
+            </li>
+        }
+    </ul>
+    <h2>2013</h2>
+      <ul>
+        @corp.filter(p => p.year == 2012 ).map { p =>
+        	<li>
+                 @p.period   @p.count
+            </li>
+        }
+    </ul>
+}
+

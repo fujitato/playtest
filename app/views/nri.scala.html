@@ -1,0 +1,51 @@
+@(corp: List[Corp_acc_smry])
+
+@import helper._
+@main("JPN list") {
+    
+    <h1>Period count of NRI companies after FY2010 TOTAL periods<span>@corp.size</span></h1>
+    <table>
+    <tr>
+    <th>2010</th>
+    <td>
+      <ul>
+        @corp.filter(p => p.year == 2010 ).map { p =>
+        	<li>
+                 @Html("FY") @p.period   @p.count @Html("companies") 
+            </li>
+        }
+    </ul>
+    </td>
+    <th>2011</th>
+    <td>
+      <ul>
+        @corp.filter(p => p.year == 2011 ).map { p =>
+        	<li>
+                 @Html("FY") @p.period   @p.count @Html("companies") 
+            </li>
+        }
+    </ul>
+    </td>
+    <th>2012</th>
+    <td>
+      <ul>
+        @corp.filter(p => p.year == 2012 ).map { p =>
+        	<li>
+                 @Html("FY") @p.period   @p.count @Html("companies") 
+            </li>
+        }
+    </ul>
+    </td>
+    <th>2013</th>
+     <td>
+      <ul>
+        @corp.filter(p => p.year == 2012 ).map { p =>
+        	<li>
+                 @Html("FY") @p.period   @p.count @Html("companies") 
+            </li>
+        }
+    </ul>
+     </td>
+    </tr>
+    </table>
+}
