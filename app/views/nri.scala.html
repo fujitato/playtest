@@ -2,50 +2,76 @@
 
 @import helper._
 @main("JPN list") {
-    
-    <h1>Period count of NRI companies after FY2010 TOTAL periods<span>@corp.size</span></h1>
-    <table>
-    <tr>
-    <th>2010</th>
-    <td>
-      <ul>
-        @corp.filter(p => p.year == 2010 ).map { p =>
-        	<li>
-                 @Html("FY") @p.period   @p.count @Html("companies") 
-            </li>
-        }
-    </ul>
-    </td>
-    <th>2011</th>
-    <td>
-      <ul>
-        @corp.filter(p => p.year == 2011 ).map { p =>
-        	<li>
-                 @Html("FY") @p.period   @p.count @Html("companies") 
-            </li>
-        }
-    </ul>
-    </td>
-    <th>2012</th>
-    <td>
-      <ul>
-        @corp.filter(p => p.year == 2012 ).map { p =>
-        	<li>
-                 @Html("FY") @p.period   @p.count @Html("companies") 
-            </li>
-        }
-    </ul>
-    </td>
-    <th>2013</th>
-     <td>
-      <ul>
-        @corp.filter(p => p.year == 2012 ).map { p =>
-        	<li>
-                 @Html("FY") @p.period   @p.count @Html("companies") 
-            </li>
-        }
-    </ul>
-     </td>
-    </tr>
-    </table>
+<link rel='stylesheet' media='screen' href='@routes.Assets.at("bootstrap/css/bootstrap.min.css")'>
+<link rel='stylesheet' media='screen' href='@routes.Assets.at("bootstrap/css/responsive.min.css")'>  
+<script type='text/javascript' src='@routes.Assets.at("bootstrap/js/bootstrap.min.js")'></script>
+
+	
+    <h2 class="page-header">Period count of NRI companies after FY2010</h2>
+    <p class="">Total periods: @corp.size</p>
+    <div class="row">
+    <div class="col-md-3">
+   	 <div class="panel panel-default">
+        <div class="panel-heading">
+              <h3 class="panel-title">2010</h3>
+        </div>
+        <div class="panel-body">
+  		    	<ul>
+        		@corp.filter(p => p.year == 2010 ).map { p =>
+        		<li>
+                 @Html("FY") @p.period   @p.count
+           		 </li>
+       			 }
+    		</ul>
+        </div>
+  	  </div>
+    </div>
+    <div class="col-md-3">
+   	 <div class="panel panel-default">
+        <div class="panel-heading">
+              <h3 class="panel-title">2011</h3>
+        </div>
+        <div class="panel-body">
+  		    	<ul>
+        		@corp.filter(p => p.year == 2011 ).map { p =>
+        		<li>
+                 @Html("FY") @p.period   @p.count
+           		 </li>
+       			 }
+    		</ul>
+        </div>
+  	  </div>
+    </div>     <div class="col-md-3">
+   	 <div class="panel panel-default">
+        <div class="panel-heading">
+              <h3 class="panel-title">2012</h3>
+        </div>
+        <div class="panel-body">
+  		    	<ul>
+        		@corp.filter(p => p.year == 2012 ).map { p =>
+        		<li>
+                 @Html("FY") @p.period   @p.count
+           		 </li>
+       			 }
+    		</ul>
+        </div>
+  	  </div>
+    </div>
+        <div class="col-md-3">
+   	 <div class="panel panel-default">
+        <div class="panel-heading">
+              <h3 class="panel-title">2013</h3>
+        </div>
+        <div class="panel-body">
+  		    	<ul>
+        		@corp.filter(p => p.year == 2013 ).map { p =>
+        		<li>
+                 @Html("FY") @p.period   @p.count
+           		 </li>
+       			 }
+    		</ul>
+        </div>
+  	  </div>
+    </div>
+    </div>
 }
