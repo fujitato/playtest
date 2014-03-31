@@ -45,7 +45,6 @@ object Application extends Controller {
     for (i: String <- countryis) {
       val global_ids: List[String] = Corp_bss.globalIdsBySplrRegion(i, 9).map(p => p.global_id)
       if (global_ids.size > 0) {
-        print(global_ids)
         val ret: List[Corp_acc_smry] = Corp_acc_smry.allPeriodBySplrRegionFY2011On(global_ids)
         val t = (i, ret)
         buffer.+=(t)

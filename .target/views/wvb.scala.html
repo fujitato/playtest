@@ -1,4 +1,4 @@
-@(corp: List[Corp_acc_smry])
+@(corp: List[Tuple2[String,List[Corp_acc_smry]]],countryis: List[String])
 
 @import helper._
 @main("Wvb periods list") {
@@ -7,71 +7,35 @@
 <script type='text/javascript' src='@routes.Assets.at("bootstrap/js/bootstrap.min.js")'></script>
 
 	
-    <h2 class="page-header">Period count of WVB companies after FY2010</h2>
+    <h2 class="page-header">Period count of WVB companies after FY2011</h2>
     <p class="">Total periods: @corp.size</p>
-    <div class="row">
+    <p class="">Country Coverage: @countryis.size</p>
+    		@corp.map { p =>
     <div class="col-md-3">
    	 <div class="panel panel-default">
+  			 	 
         <div class="panel-heading">
-              <h3 class="panel-title">2010</h3>
+              <h3 class="panel-title">@Html("Country") @p._1 @Html(":")  @p._2.size @Html("periods") </h3>
         </div>
-        <div class="panel-body">
-  		    	<ul>
-        		@corp.filter(p => p.year == 2010 ).map { p =>
-        		<li>
-                 @Html("FY") @p.period   @p.count
-           		 </li>
-       			 }
-    		</ul>
-        </div>
+       	 <div class="panel-body"> 
+       	 	<div class="col-md-4"><div class="panel-title">2011</div>     		
+        		@p._2.filter(c => c.year == 2011 ).map { cp =>
+                	<b>@cp.period @Html(":")</b>	@cp.count
+                  	} 
+             </div>
+              <div class="col-md-4"><div class="panel-title">2012</div>        		
+        		@p._2.filter(c => c.year == 2012 ).map { cp =>
+					<b>@cp.period  @Html(":")</b>	@cp.count
+                  	} 
+             </div>	
+              <div class="col-md-4"><div class="panel-title">2013</div>        		
+        		@p._2.filter(c => c.year == 2013 ).map { cp =>
+					<b>@cp.period @Html(":")</b>	@cp.count
+                  	} 
+             </div>		
+       	</div>
   	  </div>
     </div>
-    <div class="col-md-3">
-   	 <div class="panel panel-default">
-        <div class="panel-heading">
-              <h3 class="panel-title">2011</h3>
-        </div>
-        <div class="panel-body">
-  		    	<ul>
-        		@corp.filter(p => p.year == 2011 ).map { p =>
-        		<li>
-                 @Html("FY") @p.period   @p.count
-           		 </li>
-       			 }
-    		</ul>
-        </div>
-  	  </div>
-    </div>     <div class="col-md-3">
-   	 <div class="panel panel-default">
-        <div class="panel-heading">
-              <h3 class="panel-title">2012</h3>
-        </div>
-        <div class="panel-body">
-  		    	<ul>
-        		@corp.filter(p => p.year == 2012 ).map { p =>
-        		<li>
-                 @Html("FY") @p.period   @p.count
-           		 </li>
-       			 }
-    		</ul>
-        </div>
-  	  </div>
-    </div>
-        <div class="col-md-3">
-   	 <div class="panel panel-default">
-        <div class="panel-heading">
-              <h3 class="panel-title">2013</h3>
-        </div>
-        <div class="panel-body">
-  		    	<ul>
-        		@corp.filter(p => p.year == 2013 ).map { p =>
-        		<li>
-                 @Html("FY") @p.period   @p.count
-           		 </li>
-       			 }
-    		</ul>
-        </div>
-  	  </div>
-    </div>
+         }
     </div>
 }
