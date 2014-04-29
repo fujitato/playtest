@@ -1,30 +1,8 @@
-@(tasks: List[Task], taskForm: Form[String])
+@* index Template File *@
 
-@import helper._
-
-@main("Todo list") {
-    
-    <h1>@tasks.size task(s)</h1>
-    
-    <ul>
-        @tasks.map { task =>
-            <li>
-                @task.label   
-            </li>
-            <li>
-                @task.id  
-            </li>
-        }
-    </ul>
-    
-    <h2>Add a new task</h2>
-    
-    @form(routes.Application.newTask) {
-        
-        @inputText(taskForm("label")) 
-        
-        <input type="submit" value="Create">
-        
-    }
-    
+@main("index") {
+   	<div id="side">
+  	  @views.html.navi()
+	</div>
+	<div>select from menu</div>
 }

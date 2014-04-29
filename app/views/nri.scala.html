@@ -2,11 +2,9 @@
 
 @import helper._
 @main("NRI periods list") {
-<link rel='stylesheet' media='screen' href='@routes.Assets.at("bootstrap/css/bootstrap.min.css")'>
-<link rel='stylesheet' media='screen' href='@routes.Assets.at("bootstrap/css/responsive.min.css")'>  
-<script type='text/javascript' src='@routes.Assets.at("bootstrap/js/bootstrap.min.js")'></script>
-
-	
+	<div id="side">
+  	  @views.html.navi()
+	</div>
     <h2 class="page-header">Period count of NRI companies after FY2010</h2>
     <p class="">Total periods: @corp.size</p>
     <div class="row">
