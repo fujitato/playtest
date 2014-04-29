@@ -4,6 +4,7 @@ project/target
 target
 tmp
 .history
+.cache
 dist
 .settings
 bin/
@@ -14,4 +15,5 @@ bin/
 /.classpath
 /.project
 /RUNNING_PID
+
 
