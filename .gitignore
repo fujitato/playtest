@@ -9,6 +9,7 @@ tmp
 dist
 .settings
 bin/
+bin
 /.idea
 /*.iml
 /out

@@ -1,11 +1,11 @@
-@(corp: List[Tuple2[String,List[Corp_acc_smry]]],countryis: List[String])
+@(corp: List[Tuple2[String,List[Corp_acc_smry]]],countryis: List[String],spr_in_header:String)
 
 @import helper._
-@main("NRI periods list") {
+@main("Single periods list") {
 	<div id="side">
   	  @views.html.navi()
 	</div>
-    <h3 class="page-header">Period count of NRI FY2011~13("FY4","QT1","QT2","QT3")</h3>
+    <h3 class="page-header">@Html("Period count of") @spr_in_header @Html("FY2011-13(FY4,QT1,QT2,QT3)")</h3>
     <p class="">Country Coverage: @countryis.size</p>
     <p class="">Total periods: @corp.size</p>
     @for((p, index) <- corp.zipWithIndex) {
