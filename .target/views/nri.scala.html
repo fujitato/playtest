@@ -25,7 +25,8 @@
     		</ul>
         </div>
   	  </div>
-    </div>     <div class="col-md-3">
+    </div>
+     <div class="col-md-3">
    	 <div class="panel panel-default">
         <div class="panel-heading">
               <h3 class="panel-title">2012</h3>
@@ -39,21 +40,9 @@
        			 }
     		</ul>
         </div>
-         <div class="panel-heading">
-              <h3 class="panel-title">2013</h3>
-        </div>
-        <div class="panel-body">
-  		    	<ul>
-        		@corp.filter(p => p.year == 2013 ).map { p =>
-        		<li>
-                 @Html("FY") @p.period   @p.count
-           		 </li>
-       			 }
-    		</ul>
-        </div>
-  	  </div>
+      </div>
     </div>
-        <div class="col-md-3">
+     <div class="col-md-3">
    	 <div class="panel panel-default">
         <div class="panel-heading">
               <h3 class="panel-title">2013</h3>
