@@ -16,9 +16,19 @@ object Application extends Controller {
   }
 
   def nri = Action {
-    val global_ids: List[String] = Corp_bss.globalIdsBySplrRegion("JPN", 1).map(p => p.global_id)
-    val b = Corp_acc_smry.allPeriodBySplrRegionFY2011On(global_ids)
-    Ok(views.html.nri(b))
+    val countryis: List[String] = Corp_bss.countrylistBySplrId(1)
+
+    val buffer = ListBuffer[Tuple2[String, List[Corp_acc_smry]]]()
+    for (i: String <- countryis) {
+      val global_ids: List[String] = Corp_bss.globalIdsBySplrRegion(i, 1).map(p => p.global_id)
+      if (global_ids.size > 0) {
+        val ret: List[Corp_acc_smry] = Corp_acc_smry.allPeriodBySplrRegionFY2011On(global_ids)
+        val t = (i, ret)
+        buffer.+=(t)
+      }
+    }
+    Ok(views.html.nri(buffer.toList, countryis))
+
   }
 
   def wvb = Action {
